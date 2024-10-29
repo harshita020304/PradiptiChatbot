@@ -1,0 +1,180 @@
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <link rel="stylesheet" href="../static/css/stylesheet.css">
+        
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Indian Aviation Academy </title>
+        
+        <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    </head>
+    <body>
+        <header>
+
+            <nav class="navbar">
+                <div class="logo"></div>
+                <ul class="nav-links">
+                    <li><a href="#airports">Airports</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#notices">Notices</a></li>
+                    <li><a href="#contact">Contact Us</a></li>
+                    <li><a href="{{url_for('map_view')}}">Map</a></li>
+                    
+                    <li><a href="{{url_for('register')}}" target="_blank">Admin</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <main>
+
+    
+            <section id="hero" class="hero">
+                <h1>Indian Aviation Academy welcomes you!</h1>
+                <p>Ensuring safe, secure, and efficient air transport across India.</p>
+                <a href="#airports" class="button">View Airports</a>
+            </section>
+
+            <section id="airports" class="section">
+                <h2>Airports</h2>
+                <div class="airport-grid">
+                    <div class="airport-card">
+                        <h3>Indira Gandhi International Airport</h3>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin vel urna nec ligula viverra pharetra.</p>
+                        <a href="#" class="read-more">Read More</a>
+                    </div>
+                    <div class="airport-card">
+                        <h3>Chhatrapati Shivaji Maharaj International Airport</h3>
+                        <p>Vivamus sit amet eros a turpis posuere tincidunt. Nullam bibendum sapien vitae dui dignissim placerat.</p>
+                        <a href="#" class="read-more">Read More</a>
+                    </div>
+                    <div class="airport-card">
+                        <h3>Kempegowda International Airport</h3>
+                        <p>Sed in metus eget turpis luctus condimentum. Duis euismod purus et urna convallis, vitae bibendum nisl.</p>
+                        <a href="#" class="read-more">Read More</a>
+                    </div>
+                    <div class="airport-card">
+                        <h3>Chennai International Airport</h3>
+                        <p>Fusce auctor arcu eu urna vehicula, vitae maximus lectus consectetur. Morbi sagittis dolor at velit finibus.</p>
+                        <a href="#" class="read-more">Read More</a>
+                    </div>
+                </div>
+            </section>
+
+            <section id="services" class="section">
+                <h2>Services</h2>
+                <div class="service-card">
+                    <h3>Flight Information</h3>
+                    <p>Stay updated with real-time flight status and schedules.</p>
+                </div>
+                <div class="service-card">
+                    <h3>Passenger Services</h3>
+                    <p>Discover the amenities and services available to ensure a comfortable journey.</p>
+                </div>
+            </section>
+
+            <section id="notices" class="section">
+                <h2>Notices</h2>
+                <p>Check the latest updates, announcements, and advisories.</p>
+            </section>
+
+            <section id="contact" class="section">
+                <h2>Contact Us</h2>
+                <p>Reach out for inquiries, support, or feedback at: <a href="mailto:info@aai.aero">info@aai.aero</a></p>
+            </section>
+        </main>
+        
+        <!-- Dynamic Chatbot Section -->
+        <div id="chatbot" class="chatbot-modal">
+            <div class="chatbot-content">
+                <button class="close-btn" onclick="toggleChatbot()">×</button>
+                <div class="chatbot-header">
+                    <h3 class="chatbot-heading">ASK PRADIPTI</h3>
+                </div>
+                <div class="chatbot-body">
+                    <div class="chatbox">
+                        <div class="chatbot-faq">
+                            <h4 class="chatbot-faq-h4">Hello!</h4>
+                            <h5 class="chatbot-faq-h5"> I'm Pradipti your personal assistant. How can I help you today?</h5>
+                            <!-- Buttons for page scrolling -->
+        <!-- <button class="scroll-button up" onclick="scrollPage(-100)"></button>
+        <button class="scroll-button down" onclick="scrollPage(100)"></button> -->
+                            <!-- Section for What's New -->
+                    <div class="section collapsible">
+                        <h3>
+                            <span class="icon">🪐</span><p class="collapsible_heading" >FAQs</p>
+                            <span class="toggle-arrow" onclick="toggleGrid('grid-new')">&#9654;</span>
+                        </h3>
+                        <div id="grid-new" class="grid hidden">
+                            <div class="grid-item" onclick="sendSampleMessage('What types of training programs does IAA offer?')">Training Programs</div>
+                            <div class="grid-item" onclick="sendSampleMessage('How can I apply for a job or internship at IAA?')">How to apply for internship?</div>
+                            <div class="grid-item" onclick="sendSampleMessage('What is the duration of the training programs offered by IAA?')">Training Duration</div>
+                            <div class="grid-item" onclick="sendSampleMessage('What are the facilities available at the IAA campus?')">Available Facilities</div>
+                            <div class="grid-item" onclick="sendSampleMessage('Does IAA provide certification upon completion of a course?')">Course Certifications</div>
+                            <div class="grid-item" onclick="sendSampleMessage('Are there any prerequisites for specific training courses?')">Training Prerequisites</div>
+                        </div>
+                    </div>
+                           
+                    <!-- Section for Airports -->
+                    <div class="section collapsible">
+                        <h3>
+                            <span class="icon">⚡</span><p class="collapsible_heading">Airports</p>
+                            <span class="toggle-arrow" onclick="toggleGrid('grid-products')">&#9654;</span>
+                        </h3>
+
+                        <div id="grid-products" class="grid hidden">
+                            <div class="grid-item" onclick="sendSampleMessage('Internship opportunities in Delhi')">Delhi</div>
+                            <div class="grid-item" onclick="sendSampleMessage('Internship opportunities in Mumbai')">Mumbai</div>
+                            <div class="grid-item" onclick="sendSampleMessage('Internship opportunities in Pune')">Pune</div>
+                            <div class="grid-item" onclick="sendSampleMessage('Internship opportunities in Goa')">Goa</div>
+                            <div class="grid-item" onclick="sendSampleMessage('Internship opportunities in Kolkata')">Kolkata</div>
+                            <div class="grid-item" onclick="sendSampleMessage('Internship opportunities in Hyderabad')">Hyderabad</div>
+                        
+                        </div>
+                    </div>
+                </div>
+                        <div class="chatbox-messages" id="chatboxMessages">
+                            <!-- Dynamic messages will be loaded here  -->
+                        </div> 
+                        <div class="input-container">
+                            <input type="text" class="user_msg" id="userMessage" placeholder="Type your message..." onkeypress="handleKeyPress(event)">
+                            <button class="send_button"  onclick="sendMessage()">&#9654;</button>
+                            <!-- New Voice Button -->
+                            <button id="voiceButton" class="voice_button" onclick="startVoiceAssistant()">🎤</button>
+
+                        </div>
+                        
+                        
+                        
+                        
+                    </div>
+                    <!-- Feedback Section -->
+
+    <!-- "Give Feedback" Button -->
+     <div><button onclick="toggleFeedbackForm()" id="showFeedbackBtn"  class="feedbackButton">Give Feedback</button></div>
+    <!-- <button onclick="toggleFeedbackForm()" id="showFeedbackBtn" style="margin-bottom: 0px;" class="feedbackButton">Give Feedback</button>
+     -->
+
+        <!-- Feedback Form (Hidden Initially) -->
+        <section id="feedbackSection" class="section" style="display: none;  ">
+            <h2 style="font-family:Times New Roman ;">Provide Feedback</h2>
+            <textarea id="feedbackMessage" placeholder="Your feedback"></textarea>
+            <button onclick="submitFeedback()">Submit Feedback</button>
+            <section><a href="https://docs.google.com/forms/d/e/1FAIpQLSegMMVkrmAl_f9KXLsw1cC1mUuLtbZJGIGQ17ixeww-5TiQGw/viewform">feedback1</a><br>
+                    <a href="https://forms.office.com/r/TrtbpdKDs7">feedback2</a>
+            </section>
+        </section>
+
+                </div>
+            </div>
+        </div>
+        <button class="open-chatbot" onclick="toggleChatbot()">Chat with Us</button>
+
+        <footer>
+            <p>&copy; 2024 Airports Authority of India. All rights reserved.</p>
+        </footer>
+        
+
+        <script src="../static/js/script.js"></script>
+    </body>
+    </html>

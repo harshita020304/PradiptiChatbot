@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Display a map on a webpage</title>
+<meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no">
+<link href="https://api.mapbox.com/mapbox-gl-js/v3.7.0/mapbox-gl.css" rel="stylesheet">
+<script src="https://api.mapbox.com/mapbox-gl-js/v3.7.0/mapbox-gl.js"></script>
+<style>
+body { margin: 0; padding: 0; }
+#map { position: absolute; top: 0; bottom: 0; width: 100%; }
+</style>
+</head>
+<body>
+<div id="map"></div>
+<script>
+	mapboxgl.accessToken = 'pk.eyJ1IjoiYXRoYXJ2dmlpdCIsImEiOiJjbHlxYWkwZGYweWJ2MmxvaXFnenBrY2l2In0.xi6flE6wLdkrAb25XTskhA';
+    const map = new mapboxgl.Map({
+        container: 'map', // container ID
+        center: [73.8567,18.5204], // starting position [lng, lat]. Note that lat must be set between -90 and 90
+        zoom: 9 // starting zoom
+    });
+    // Click event on the map
+    // Click event on the map
+map.on('click', function (e) {
+    const lngLat = e.lngLat;
+
+    fetch(`/get_internships?lng=${lngLat.lng}&lat=${lngLat.lat}`)
+        .then(response => response.json())
+        .then(data => {
+            if (data.internships && data.internships.length > 0) {
+                alert(`Internships opportunities in ${data.city}:\n` + data.internships.join('\n'));
+            } else {
+                alert('No internship opportunities available in this city.');
+            }
+        })
+        .catch(error => {
+            console.error('Error fetching internship data:', error);
+        });
+});
+
+
+// Function to send city info to the chatbot
+function sendToChatbot(city, internships) {
+    const userMessageInput = document.getElementById('userMessage');
+    const chatboxMessages = document.getElementById('chatboxMessages');
+    
+    if (city.trim()) {
+        // Display user message in chat
+        const userMessage = document.createElement('div');
+        userMessage.classList.add('message', 'user-message');
+        userMessage.textContent = `Show internships in ${city}`;
+        chatboxMessages.appendChild(userMessage);
+        chatboxMessages.scrollTop = chatboxMessages.scrollHeight;
+
+        // Send city and internship data to chatbot via /predict route
+        fetch('/predict', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({ message: `Internships in ${city}: ${internships.join(', ')}` }),
+        })
+        .then(response => response.json())
+        .then(result => {
+            // Display bot response
+            const botMessage = document.createElement('div');
+            botMessage.classList.add('message', 'bot-message');
+            botMessage.textContent = result.reply;
+            chatboxMessages.appendChild(botMessage);
+            chatboxMessages.scrollTop = chatboxMessages.scrollHeight;
+        })
+        .catch(error => {
+            console.error('Error sending message to chatbot:', error);
+        });
+    }
+}
+</script>
+
+</body>
+</html>

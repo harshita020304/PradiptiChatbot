@@ -1,0 +1,540 @@
+             /* Global Styles */
+             * {
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+                font-family: 'Poppins', sans-serif;
+            }
+        
+            body {
+                background-color: #f7f7f7;
+                color: #333;
+                line-height: 1.6;
+                padding-top: 60px;
+            }
+        
+            header {
+                width: 100%;
+                position: fixed;
+                top: 0;
+                left: 0;
+                background-color: #fff;
+                border-bottom: 1px solid #ddd;
+                box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+                z-index: 1000;
+            }
+            /* Chatbot Styles */
+            .chatbot-modal {
+                display: none;
+                position: fixed;
+                bottom: 20px;
+                right: 20px;
+                width: 450px;
+                max-height: 500px;
+                overflow: auto;
+                background: linear-gradient(to right, #ACDEF5, #3177f0);
+                color: #fff;
+                border: 1px solid #ddd;
+                border-radius: 8px;
+                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+                z-index: 1000;
+            }
+        
+            .chatbot-content {
+                display: flex;
+                flex-direction: column;
+                height: auto;
+            }
+        
+            .chatbot-header {
+                background: linear-gradient(to right, #ACDEF5, #74A0EB);
+                color: #fff;
+                padding: 10px;
+                border-top-left-radius: 8px;
+                border-top-right-radius: 8px;
+                text-align: center;
+            }
+        
+            .close-btn {
+                background: none;
+                border: none;
+                color: #fff;
+                font-size: 1.5rem;
+                cursor: pointer;
+                position: absolute;
+                top: 10px;
+                right: 10px;
+            }
+        
+            .chatbot-body {
+                display: flex;
+                flex-direction: column;
+                height: 100%;
+                overflow: auto;
+            
+            }
+        
+            .chatbot-faq {
+                padding: 10px;
+                border-bottom: 1px solid #ddd;
+                overflow: auto;
+            }
+        
+            .chatbot-faq h4 {
+                margin-bottom: 10px;
+                font-family: Arial, Helvetica, sans-serif;
+            }
+        
+            .chatbot-faq ul {
+                list-style: none;
+                padding: 0;
+            }
+        
+            .chatbot-faq ul li a {
+                text-decoration: none;
+                color: #007bff;
+                display: block;
+                margin: 5px 0;
+                transition: color 0.3s;
+            }
+        
+            .chatbot-faq ul li a:hover {
+                color: #0056b3;
+            }
+        
+            .chatbox {
+                display: flex;
+                flex-direction: column;
+                height: 100%;
+                overflow: auto;
+                
+            }
+        
+            .chatbox-messages {
+                flex: 1;
+                overflow: auto;
+                padding-bottom: 15px;
+                height: 150px;
+            }
+        
+            .message {
+                padding: 10px;
+                border-radius: 5px;
+                margin: 5px 0;
+                color: black;
+            }
+        
+            
+        
+            .bot-message {
+                background: linear-gradient(to right, #ACDEF5, #3177f0);
+                align-self: flex-start;
+                overflow: auto;
+                /* border: 0.5px solid black; */
+                
+                
+            }
+        
+            .user-message {
+                padding-left: 50px;
+                background:linear-gradient(to right, #ACDEF5, #3177f0);
+                color: black;
+                align-self:center;
+                text-align: end;
+               
+              
+            }
+
+            .user_msg{
+                width: 500px;
+            }
+        
+            .chatbox input[type="text"] {
+                padding: 10px;
+                border: 1px solid #000000;
+                border-radius: 5px;
+                margin-top: 10px;
+                width: calc(100% - 60px);
+            }
+        
+            .chatbox button {
+                padding: 10px;
+                border: none;
+                background: linear-gradient(to right, #ACDEF5, #3177f0);
+        
+                color: #fff;
+                border-radius: 5px;
+                cursor: pointer;
+                margin-left: 10px;
+                transition: background-color 0.3s;
+            }
+        
+            .chatbox button:hover {
+                background-color:#000000
+            }
+        
+            .open-chatbot {
+                position: fixed;
+                bottom: 20px;
+                right: 20px;
+                background: linear-gradient(to right, #ACDEF5, #3177f0);
+                color: #000000;
+                padding: 10px 20px;
+                border: none;
+                border-radius: 25px;
+                cursor: pointer;
+                font-weight: 600;
+                transition: background-color 0.3s;
+            }
+        
+            .open-chatbot:hover {
+                background-color: #0056b3;
+            }
+        
+            .navbar {
+                max-width: 1200px;
+                margin: 0 auto;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                padding: 15px 20px;
+            }
+        
+            .logo  {
+          width: 10%;
+          height: 50px;
+          background-image: url('https://indianaviationacademy.co.in/wp-content/uploads/2024/07/cropped-Indian-Aviation-1.png');
+          background-size: 100% 100%;
+          
+        }
+        
+            .nav-links {
+                list-style: none;
+                display: flex;
+            }
+        
+            .nav-links li {
+                margin-left: 20px;
+            }
+        
+            .nav-links a {
+                text-decoration: none;
+                color: #333;
+                font-weight: 500;
+                transition: color 0.3s;
+            }
+        
+            .nav-links a:hover {
+                color: #007bff;
+            }
+        
+            .hero {
+                background-color: #e8f4f8;
+                text-align: center;
+                padding: 100px 20px;
+                animation: fadeIn 2s ease-in-out;
+            }
+        
+            .hero h1 {
+                font-size: 2.5rem;
+                color: #333;
+                margin-bottom: 20px;
+            }
+        
+            .hero p {
+                font-size: 1.2rem;
+                color: #555;
+                margin-bottom: 30px;
+            }
+        
+            .button {
+                background: linear-gradient(to right, #ACDEF5, #74A0EB);
+                color: #000000;
+                padding: 10px 20px;
+                border: none;
+                border-radius: 5px;
+                text-decoration: none;
+                font-weight: 600;
+                transition: background-color 0.3s;
+            }
+        
+            .button:hover {
+                padding: 10px;
+                background: linear-gradient(to right, #ACDEF5, #74A0EB);
+            }
+        
+            .section {
+                padding: 60px 20px;
+                max-width: 1000px;
+                margin: 0 auto;
+                align-content: center;
+            }
+        
+            h2 {
+                text-align: center;
+                margin-bottom: 20px;
+                font-size: 2rem;
+                color: #333;
+            }
+        
+            .airport-grid {
+                display: grid;
+                grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+                gap: 20px;
+            }
+        
+            .airport-card {
+                background-color: #fff;
+                border: 1px solid #ddd;
+                border-radius: 8px;
+                padding: 20px;
+                box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+                transition: transform 0.3s, box-shadow 0.3s;
+            }
+        
+            .airport-card:hover {
+                transform: translateY(-5px);
+                box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+            }
+        
+            .read-more {
+                display: inline-block;
+                margin-top: 10px;
+                color: #007bff;
+                text-decoration: none;
+                font-weight: 600;
+                transition: color 0.3s;
+            }
+        
+            .read-more:hover {
+                color: #0056b3;
+            }
+        
+            .service-card {
+                background-color: #fff;
+                border: 1px solid #ddd;
+                border-radius: 8px;
+                padding: 20px;
+                margin: 20px 0;
+                box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+                transition: box-shadow 0.3s;
+            }
+        
+            .service-card:hover {
+                box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+            }
+        
+            footer {
+                background-color: #333;
+                color: #fff;
+                text-align: center;
+                padding: 20px;
+                margin-top: 20px;
+            }
+        
+            .message-box {
+                display: flex;
+                align-items: center;
+                border: 1px solid black;
+                border-radius: 15px;
+                padding: 10px;
+                width: 440px;
+                height: 40px;
+                margin:5px;
+            }
+        
+            .message-box input {
+                border: none;
+                flex: 1;
+                font-size: 16px;
+                padding: 5px;
+                outline: none;
+            }
+        
+            .message-box button {
+                background: none;
+                border: none;
+                font-size: 14px;
+                cursor: pointer;
+                outline: none;
+            }
+        
+            .section {
+                padding: 10px 0;
+                
+            }
+            
+            
+    
+            .collapsible h3 {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                font-size: 14px;
+                padding: 8px;
+                background-color: #f9f9f9;
+                border-radius: 5px;
+                cursor: pointer;
+            }
+
+            .collapsible_heading{
+                color: #000000;
+            }
+            
+            
+        
+            .toggle-arrow {
+                cursor: pointer;
+                margin-left: 10px;
+            }
+        
+            .grid {
+                display: grid;
+                grid-template-columns: repeat(3, 1fr); /* 3 columns */
+                grid-template-rows: repeat(2, auto); /* 2 rows */
+                gap: 5px;
+                margin-top: 10px;
+            }
+            
+            .chatbot-heading{
+                color: #000000;
+            }
+
+            .chatbot-faq-h4{
+                color: #000000;
+            }
+
+            .chatbot-faq-h5{
+                color: #000000;
+            }
+
+
+            .grid-item {
+                background-color: #ffffff;
+                color: #000000;
+                padding: 10px;
+                text-align: center;
+                border-radius: 5px;
+                transition: background-color 0.3s ease;
+            }
+        
+            .grid-item:hover {
+                background-color: #d0d0d0;
+            }
+            
+            .send_button{
+                height: 40px;
+                width: 80px;
+                align-self: center;
+            }
+
+            .voice_button{
+                height: 40px;
+                width: 40px;
+                align-self: center;
+            }
+
+            .scroll-button {
+                background-color: #fff;
+                border: none;
+                cursor: pointer;
+                font-size: 18px;
+                padding: 10px;
+                position: fixed;
+                left: 50%;
+                transform: translateX(-50%);
+                z-index: 1;
+            }
+        
+            .scroll-button.up {
+                top: 10px;
+            }
+        
+            .scroll-button.down {
+                bottom: 10px;
+            }
+        
+            .hidden {
+                display: none;
+            }
+        
+             /* Input container styling to place input field beside the button */
+             .input-container {
+                display: flex;
+                padding: 0px;   
+            }
+        
+            .feedbackButton {
+          padding: 5px 10px;
+          font-size: 15px;
+          text-align: center;
+          cursor: pointer;
+          outline: none;
+          color: #000000;
+          background-color: transparent;
+          /* border-radius: 5px; */
+          padding-left: 35%;
+          border: transparent;
+        
+          /* box-shadow: 0 9px #999; */
+        }
+        
+        
+        
+        .feedbackButton:active {
+          background-color: #189dea;
+          /* box-shadow: 0 5px #666; */
+          transform: translateY(4px);
+        }
+            
+        
+            #feedbackSection {
+            margin-top: 20px;
+            border-top: 1px solid #ddd;
+            padding-top: 15px;
+            
+           
+        }
+        
+        #feedbackSection h4 {
+            margin-bottom: 10px;
+            color: #333;
+        }
+        
+        #feedbackSection textarea {
+            width: 100%;
+            padding: 10px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+        
+        #feedbackSection button {
+            margin-top: 10px;
+            padding: 8px 15px;
+            background-color: #007BFF;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            vertical-align: bottom;
+            
+        }
+        
+        #feedbackSection button:hover {
+            background-color: #0056b3;
+        }
+        
+        
+            /* Animations */
+            @keyframes fadeIn {
+                from {
+                    opacity: 0;
+                    transform: translateY(-20px);
+                }
+                to {
+                    opacity: 1;
+                    transform: translateY(0);
+                }
+            }
+        
+                    

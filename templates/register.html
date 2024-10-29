@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link rel="stylesheet" type="text/css" href="../static/css/admin.css" />
+    <script src="../static/js/admin.js" defer></script>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pradipti ChatBot Dashboard</title>
+    <link rel="stylesheet" href="../static/css/admin.css" />
+  </head>
+  <body>
+
+
+    <div class="container">
+      <!-- Sidebar -->
+      <div class="sidebar">
+        <div class="logo">
+          
+          <i class="fas fa-plane"></i> Pradipti ChatBot
+        </div>
+        <div class="welcome-text">Welcome Back!</div>
+        <ul class="airport-list">
+          <li>Delhi Airport</li>
+          <li>Mumbai Airport</li>
+          <li>Bangalore Airport</li>
+          <li>Jaipur Airport</li>
+          <li>Hyderabad Airport</li>
+          <li>Chennai Airport</li>
+          <li>Goa Airport</li>
+        </ul>
+      </div>
+
+      <!-- Main Content Area -->
+      <div class="main-content">
+        <!-- Top Bar -->
+        <div class="top-bar">
+          <input type="text" class="search-bar" placeholder="Search Airport" />
+          <a href="#" class="logout">Log out</a>
+        </div>
+
+        <!-- Info Box -->
+        <div class="info-box-container">
+          <div class="info-box">
+            <h2 class="airport-title">DELHI AIRPORT</h2>
+            <div class="info-text">
+              <h3>Available Information</h3>
+              <p>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do
+                eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
+                enim ad minim veniam, quis nostrud exercitation ullamco laboris
+                nisi ut aliquip.
+              </p>
+            </div>
+            <div class="buttons-container">
+              <button class="info-btn" onclick="addInformation()">
+                ADD INFORMATION
+              </button>
+              <button class="info-btn" onclick="updateInformation()">
+                UPDATE INFORMATION
+              </button>
+              <button class="info-btn" onclick="toggleFileEditor()">
+                EDIT INFORMATION
+              </button>
+              <section id="fileEditorSection" class="section" style="display: none;">
+                <h2>Edit File</h2>
+                <form id="editFileForm" action="/save_sample" method="POST">
+                    <textarea id="file-content" name="file_content">Loading...</textarea>
+                    <button type="submit" class="btn btn-primary" onclick="">Save Changes</button>
+                </form>
+            </section>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+
+  </body>
+
+
+</html>
